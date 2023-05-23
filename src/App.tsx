@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Form } from './components'
-import { TodoList } from './components'
+import { Form, TodoList } from './components'
 
 const App = (): React.JSX.Element => {
 
