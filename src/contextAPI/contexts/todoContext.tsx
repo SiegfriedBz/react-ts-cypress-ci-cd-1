@@ -13,13 +13,6 @@ interface IState {
   isEditMode: boolean;
 }
 
-type ActionType =
-  | { type: 'ADD_TODO', payload: ITodo }
-  | { type: 'UPDATE_TODO_CONTENT', payload: { id: string, content: string } }
-  | { type: 'TOGGLE_TODO_IS_DONE', payload: { id: string } }
-  | { type: 'DELETE_TODO', payload: { id: string } }
-  | { type: 'TOGGLE_IS_EDIT_MODE' }
-
 type TodoContextType = {
     todos: ITodo[];
     isEditMode: boolean;
@@ -33,11 +26,21 @@ type TodoContextType = {
 export const TodoContext = createContext<TodoContextType>({
   todos: [],
   isEditMode: false,
-  addTodo: () => {},
-  updateTodoContent: () => {},
-  toggleTodoIsDone: () => {},
-  deleteTodo :() => {},
-  toggleIsEditMode: () => {}
+  addTodo: () => {
+    // do smthg //
+  },
+  updateTodoContent: () => {
+    // do smthg //
+  },
+  toggleTodoIsDone: () => {
+    // do smthg //
+  },
+  deleteTodo :() => {
+    // do smthg //
+  },
+  toggleIsEditMode: () => {
+    // do smthg //
+  }
 })
 
 export const useTodoContext = () => {
