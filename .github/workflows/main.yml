@@ -36,9 +36,9 @@ jobs:
 
       # Share build artifact inside workflow
       - name: Upload React Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-         name: build
+         name: react_build
          path: ${{ github.workspace }}/build
 
       - name: Run Cypress Tests
@@ -68,7 +68,13 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
+        
+      - name: Download React Build Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: react_build
+          path: ${{ github.workspace }}/build
       - name: check if build artifact exists
-        run: ls -l /build
+        run: ls -l ${{ github.workspace }}/build
 
 #      - name: Deploy to Render
