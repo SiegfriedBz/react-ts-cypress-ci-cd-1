@@ -43,7 +43,7 @@ export const TodoContext = createContext<TodoContextType>({
   }
 })
 
-export const useTodoContext = () => {
+export const useTodoContext = (): TodoContextType => {
   return useContext(TodoContext)
 }
 
