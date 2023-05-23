@@ -16,12 +16,8 @@ type ActionType =
     | { type: 'DELETE_TODO', payload: { id: string } }
     | { type: 'TOGGLE_IS_EDIT_MODE' }
 
-const initialState: IState = {
-  todos: [],
-  isEditMode: false
-}
 
-export const todoReducer = (state: IState, action: ActionType) => {
+export const todoReducer = (state: IState, action: ActionType): IState => {
   switch (action.type) {
   case 'ADD_TODO':
     return { ...state, todos: [ ...state.todos, action.payload ] }

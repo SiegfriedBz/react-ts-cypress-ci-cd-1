@@ -4,7 +4,7 @@ import { TodoCard } from './'
 import { ITodo } from '../interfaces'
 import './components.css'
 
-const TodoList = () => {
+const TodoList = (): React.JSX.Element | null => {
 
   const { todos } = useTodoContext()
 

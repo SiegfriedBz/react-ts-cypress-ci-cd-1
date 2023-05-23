@@ -3,7 +3,7 @@ import './App.css'
 import { Form } from './components'
 import { TodoList } from './components'
 
-const App = () => {
+const App = (): React.JSX.Element => {
 
   return (
     <div className="App">

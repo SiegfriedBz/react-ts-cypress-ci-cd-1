@@ -9,8 +9,7 @@ interface IProps {
     todo: ITodo;
 }
 
-const TodoCard = ({ todo }: IProps) => {
-
+const TodoCard = ({ todo }: IProps): JSX.Element => {
   const {
     isEditMode,
     updateTodoContent,
@@ -25,7 +24,7 @@ const TodoCard = ({ todo }: IProps) => {
         <input type='text'
           className=""
           value={todo.content}
-          onChange={(e) => updateTodoContent(todo.id, e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>): void => updateTodoContent(todo.id, e.target.value)}
         />
       )
         : (
@@ -35,19 +34,19 @@ const TodoCard = ({ todo }: IProps) => {
       <div>
         <span
           className="icon"
-          onClick={toggleIsEditMode}
+          onClick={(): void => toggleIsEditMode()}
         >
           <AiFillEdit />
         </span>
         <span
           className="icon"
-          onClick={() => toggleTodoIsDone(todo.id)}
+          onClick={(): void => toggleTodoIsDone(todo.id)}
         >
           <MdDone />
         </span>
         <span
           className="icon"
-          onClick={() => deleteTodo(todo.id)}
+          onClick={(): void => deleteTodo(todo.id)}
         >
           <AiFillDelete />
         </span>

@@ -21,14 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
     "eject": "react-scripts eject",
-    "eslint": "eslint src --ext .js,.jsx,.ts,.tsx"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eslint": "eslint src/**/*.{ts,tsx}"
   },
   "browserslist": {
     "production": [

@@ -1,14 +1,17 @@
 import React, { createContext, useContext, useReducer } from 'react'
-import { ITodo, IState } from '../../interfaces';
 import { todoReducer } from '../reducers/todoReducer';
 import {v4 as uuidv4} from 'uuid';
 
-type ACTIONTYPE =
-    | { type: 'ADD_TODO', payload: ITodo }
-    | { type: 'UPDATE_TODO_CONTENT', payload: { id: string, content: string } }
-    | { type: 'TOGGLE_TODO_IS_DONE', payload: { id: string } }
-    | { type: 'DELETE_TODO', payload: { id: string } }
-    | { type: 'TOGGLE_IS_EDIT_MODE' }
+interface ITodo {
+  id: string;
+  content: string;
+  isDone: boolean;
+}
+
+interface IState {
+  todos: ITodo[];
+  isEditMode: boolean;
+}
 
 type TodoContextType = {
     todos: ITodo[];
@@ -23,14 +26,24 @@ type TodoContextType = {
 export const TodoContext = createContext<TodoContextType>({
   todos: [],
   isEditMode: false,
-  addTodo: () => {},
-  updateTodoContent: () => {},
-  toggleTodoIsDone: () => {},
-  deleteTodo: () => {},
-  toggleIsEditMode: () => {}
+  addTodo: () => {
+    // do smthg //
+  },
+  updateTodoContent: () => {
+    // do smthg //
+  },
+  toggleTodoIsDone: () => {
+    // do smthg //
+  },
+  deleteTodo :() => {
+    // do smthg //
+  },
+  toggleIsEditMode: () => {
+    // do smthg //
+  }
 })
 
-export const useTodoContext = () => {
+export const useTodoContext = (): TodoContextType => {
   return useContext(TodoContext)
 }
 
@@ -38,33 +51,33 @@ interface IProps {
     children: React.ReactNode
 }
 
-const initialState = {
+const initialState: IState = {
   todos: [],
   isEditMode: false
 }
 
-export const TodoContextProvider = ({ children }: IProps) => {
+export const TodoContextProvider = ({ children }: IProps): React.JSX.Element => {
 
   const [state, dispatch] = useReducer(todoReducer, initialState)
 
-  const addTodo = (content: string): any => {
+  const addTodo = (content: string): void => {
     const newTodo: ITodo = { id: uuidv4(), content, isDone: false }
     dispatch({ type: 'ADD_TODO', payload: newTodo })
   }
 
-  const updateTodoContent = (id: string, content: string) => {
+  const updateTodoContent = (id: string, content: string): void => {
     dispatch({ type: 'UPDATE_TODO_CONTENT', payload: { id, content } })
   }
 
-  const deleteTodo = (id: string): any => {
+  const deleteTodo = (id: string): void => {
     dispatch({ type: 'DELETE_TODO', payload: { id } })
   }
 
-  const toggleTodoIsDone = (id: string) => {
+  const toggleTodoIsDone = (id: string): void => {
     dispatch({ type: 'TOGGLE_TODO_IS_DONE', payload: { id } })
   }
 
-  const toggleIsEditMode = () => {
+  const toggleIsEditMode = (): void => {
     dispatch({ type: 'TOGGLE_IS_EDIT_MODE' })
   }
 
