@@ -1,12 +1,12 @@
 import React from 'react'
 import { useTodoContext } from '../contextAPI/contexts/todoContext'
-import { ITodo } from '../interfaces'
+import { TodoType } from '../contextAPI/types/custom'
 import './todo_card.css'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import { MdDone } from 'react-icons/md'
 
 interface IProps {
-    todo: ITodo;
+    todo: TodoType;
 }
 
 const TodoCard = ({ todo }: IProps): JSX.Element => {

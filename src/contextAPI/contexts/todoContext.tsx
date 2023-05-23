@@ -1,25 +1,7 @@
 import React, { createContext, useContext, useReducer } from 'react'
 import { todoReducer } from '../reducers/todoReducer';
+import { TodoType, IState, ITodoContext } from '../types/custom'
 import { v4 as uuidv4 } from 'uuid';
-
-type TodoType = {
-  id: string;
-  content: string;
-  isDone: boolean;
-}
-
-interface IState {
-  todos: TodoType[];
-  isEditMode: boolean;
-}
-
-interface ITodoContext extends IState {
-  addTodo: (content: string) => void;
-  updateTodoContent: (id: string, content: string) => void;
-  toggleTodoIsDone: (id: string) => void;
-  deleteTodo: (id: string) => void;
-  toggleIsEditMode: () => void;
-}
 
 export const TodoContext = createContext<ITodoContext>({
   todos: [],

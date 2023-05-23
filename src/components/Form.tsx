@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useTodoContext } from '../contextAPI/contexts/todoContext';
+import { useTodoContext } from '../contextAPI/contexts/todoContext'
 import './form.css'
 
 const Form = (): React.JSX.Element => {

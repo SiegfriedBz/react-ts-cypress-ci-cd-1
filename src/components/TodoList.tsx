@@ -1,7 +1,7 @@
 import React from 'react'
-import { useTodoContext } from '../contextAPI/contexts/todoContext';
+import { useTodoContext } from '../contextAPI/contexts/todoContext'
 import { TodoCard } from './'
-import { ITodo } from '../interfaces'
+import { TodoType } from '../contextAPI/types/custom'
 import './components.css'
 
 const TodoList = (): React.JSX.Element | null => {
@@ -12,7 +12,7 @@ const TodoList = (): React.JSX.Element | null => {
 
   return (
     <div className="todos">
-      {todos?.map((todo: ITodo) => {
+      {todos?.map((todo: TodoType) => {
         return <TodoCard key={todo.id} todo={todo} />
       })}
     </div>

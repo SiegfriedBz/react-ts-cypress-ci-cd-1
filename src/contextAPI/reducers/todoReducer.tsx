@@ -1,20 +1,4 @@
-type TodoType = {
-  id: string;
-  content: string;
-  isDone: boolean;
-}
-
-interface IState {
-    todos: TodoType[];
-    isEditMode: boolean;
-}
-
-type ActionType =
-    | { type: 'ADD_TODO', payload: TodoType }
-    | { type: 'UPDATE_TODO_CONTENT', payload: { id: string, content: string } }
-    | { type: 'TOGGLE_TODO_IS_DONE', payload: { id: string } }
-    | { type: 'DELETE_TODO', payload: { id: string } }
-    | { type: 'TOGGLE_IS_EDIT_MODE' }
+import { IState, ActionType } from '../types/custom'
 
 export const todoReducer = (state: IState, action: ActionType): IState => {
   switch (action.type) {
