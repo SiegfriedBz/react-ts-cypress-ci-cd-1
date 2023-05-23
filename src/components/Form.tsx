@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { useTodoContext } from '../contextAPI/contexts/todoContext';
 import './form.css'
 
-const Form = ( ) => {
+const Form = (): React.JSX.Element => {
   const { addTodo } = useTodoContext()
 
   const [todoContent, setTodoContent] = useState<string>('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setTodoContent(e.target.value)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent): void | null  => {
     e.preventDefault()
-    if(!todoContent) return
+    if(!todoContent) return null
     addTodo(todoContent)
     setTodoContent('')
   }
