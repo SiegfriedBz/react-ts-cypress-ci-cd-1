@@ -7,7 +7,7 @@ on:
     branches: [ "develop", "main" ]
 
 jobs:
-  create_react_build_and_run_cypress_tests:
+  eslint_and_build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -32,6 +32,23 @@ jobs:
         with:
          name: react_build
          path: ${{ github.workspace }}/build
+
+  cypress_tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 19.x ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v3
         with:
@@ -42,7 +59,7 @@ jobs:
           command: npm run cypress:run
 
   deploy:
-    needs: create_react_build_and_run_cypress_tests
+    needs: eslint_and_build && cypress_tests
     runs-on: ubuntu-latest
 
     strategy:
