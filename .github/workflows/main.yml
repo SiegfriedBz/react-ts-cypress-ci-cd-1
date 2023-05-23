@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: build
-         path: ${{ github.workspace }}/build
+         path: /build
 
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v3
