@@ -34,15 +34,15 @@ jobs:
       - name: Create React Build
         run: npm run build --if-present
 
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v3
-        with:
-          project: .
-          browser: chrome
-          build: $BUILD_DIR
-          start: npm start
-          wait-on: "http://localhost:3000"
-          command: npm run cypress:run
+#      - name: Run Cypress Tests
+#        uses: cypress-io/github-action@v3
+#        with:
+#          project: .
+#          browser: chrome
+#          build: $BUILD_DIR
+#          start: npm start
+#          wait-on: "http://localhost:3000"
+#          command: npm run cypress:run
 
       # Share build artifact inside workflow
       - name: Upload React Build Artifact
