@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: build
-         path: /build
+         path: ${{ github.workspace }}/build
 
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v3
@@ -69,6 +69,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: check if build artifact exists
-        run: ls -l ${{ github.workspace }}/build
+        run: ls -l /build
 
 #      - name: Deploy to Render
