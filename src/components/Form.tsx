@@ -40,4 +40,5 @@ const Form = (): React.JSX.Element => {
     </form>
   )
 }
+
 export default Form

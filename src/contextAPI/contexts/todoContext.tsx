@@ -64,4 +64,3 @@ export const TodoContextProvider = ({ children }: IProps): React.JSX.Element => 
     </TodoContext.Provider>
   )
 }
-

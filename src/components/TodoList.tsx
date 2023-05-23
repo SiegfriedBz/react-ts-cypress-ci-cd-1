@@ -10,12 +10,17 @@ const TodoList = (): React.JSX.Element | null => {
 
   if(!todos.length) return null
 
+  const renderTodoList = (): React.JSX.Element[] => {
+    return todos.map((todo: TodoType) => {
+      return <TodoCard key={todo.id} todo={todo} />
+    })
+  }
+
   return (
     <div className="todos">
-      {todos?.map((todo: TodoType) => {
-        return <TodoCard key={todo.id} todo={todo} />
-      })}
+      {renderTodoList()}
     </div>
   )
 }
+
 export default TodoList

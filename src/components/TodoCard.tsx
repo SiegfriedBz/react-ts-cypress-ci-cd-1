@@ -9,7 +9,7 @@ interface IProps {
     todo: TodoType;
 }
 
-const TodoCard = ({ todo }: IProps): JSX.Element => {
+const TodoCard = ({ todo }: IProps): React.JSX.Element => {
   const {
     isEditMode,
     updateTodoContent,
@@ -54,4 +54,5 @@ const TodoCard = ({ todo }: IProps): JSX.Element => {
     </form>
   )
 }
+
 export default TodoCard
