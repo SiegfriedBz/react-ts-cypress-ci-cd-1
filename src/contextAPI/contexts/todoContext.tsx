@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react'
 import { todoReducer } from '../reducers/todoReducer';
-import { TodoType, IState, ITodoContext } from '../types/custom'
+import { ITodo, IState, ITodoContext } from '../types/custom'
 import { v4 as uuidv4 } from 'uuid';
 
 export const TodoContext = createContext<ITodoContext>({
@@ -31,7 +31,7 @@ export const TodoContextProvider = ({ children }: IProps): React.JSX.Element => 
   const [state, dispatch] = useReducer(todoReducer, initialState)
 
   const addTodo: ITodoContext['addTodo'] = (content) => {
-    const newTodo: TodoType = { id: uuidv4(), content, isDone: false }
+    const newTodo: ITodo['todo'] = { id: uuidv4(), content, isDone: false }
     dispatch({ type: 'ADD_TODO', payload: newTodo })
   }
 

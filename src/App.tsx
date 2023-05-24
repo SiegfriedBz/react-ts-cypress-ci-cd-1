@@ -6,7 +6,7 @@ const App = (): React.JSX.Element => {
 
   return (
     <div className="App">
-      <span className="heading">Taskify</span>
+      <span className="heading">Tasks</span>
       <Form />
       <TodoList />
     </div>

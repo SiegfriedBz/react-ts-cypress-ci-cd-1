@@ -1,11 +1,13 @@
-export type TodoType = {
-    id: string;
-    content: string;
-    isDone: boolean;
+export interface ITodo {
+    todo: {
+        id: string;
+        content: string;
+        isDone: boolean;
+    }
 }
 
 export interface IState {
-    todos: TodoType[];
+    todos: ITodo['todo'][];
     isEditMode: boolean;
 }
 
@@ -18,7 +20,7 @@ export interface ITodoContext extends IState {
 }
 
 export type ActionType =
-  | { type: 'ADD_TODO', payload: TodoType }
+  | { type: 'ADD_TODO', payload: ITodo['todo'] }
   | { type: 'UPDATE_TODO_CONTENT', payload: { id: string, content: string } }
   | { type: 'TOGGLE_TODO_IS_DONE', payload: { id: string } }
   | { type: 'DELETE_TODO', payload: { id: string } }
