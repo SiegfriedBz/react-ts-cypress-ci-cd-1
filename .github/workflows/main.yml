@@ -2,9 +2,7 @@ name: E2E_and_Deploy
 
 on:
   push:
-    branches: [ "develop", "main" ]
-  pull_request:
-    branches: [ "develop", "main" ]
+    branches: '*'
 
 jobs:
   eslint_and_build:
