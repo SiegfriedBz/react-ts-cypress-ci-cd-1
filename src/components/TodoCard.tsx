@@ -14,13 +14,29 @@ const TodoCard = ({ todo }: IProps): React.JSX.Element => {
     toggleIsEditMode
   } = useTodoContext()
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    updateTodoContent(todo.id, e.target.value)
+  }
+
+  const handleToggleIsEditMode = (): void => {
+    toggleIsEditMode()
+  }
+
+  const handleToggleTodoIsDone = (): void => {
+    toggleTodoIsDone(todo.id)
+  }
+
+  const handleDeleteTodo =  (): void => {
+    deleteTodo(todo.id)
+  }
+
   return (
     <form className='form_todo'>
       {isEditMode ? (
         <input type='text'
           className=""
           value={todo.content}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>): void => updateTodoContent(todo.id, e.target.value)}
+          onChange={handleChange}
         />
       )
         : (
@@ -30,19 +46,19 @@ const TodoCard = ({ todo }: IProps): React.JSX.Element => {
       <div>
         <span
           className="icon"
-          onClick={(): void => toggleIsEditMode()}
+          onClick={handleToggleIsEditMode}
         >
           <AiFillEdit />
         </span>
         <span
           className="icon"
-          onClick={(): void => toggleTodoIsDone(todo.id)}
+          onClick={handleToggleTodoIsDone}
         >
           <MdDone />
         </span>
         <span
           className="icon"
-          onClick={(): void => deleteTodo(todo.id)}
+          onClick={handleDeleteTodo}
         >
           <AiFillDelete />
         </span>
