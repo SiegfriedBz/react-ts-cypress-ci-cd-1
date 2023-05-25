@@ -16,6 +16,7 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module',
   },
+  root: true,
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
